@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5 import QtCore, QtGui
-from N import Ui_MainWin
+from Step_Helper import Ui_MainWin
 
 
 class App(QDialog):
