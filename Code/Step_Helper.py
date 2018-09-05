@@ -125,7 +125,7 @@ class Ui_MainWin(object):
             step2 = "STEP  " + str(current_step)
             self.show_step.setText(step)
             self.show_text.setText(hints[step2])
-            print(current_step)
+            
 
     def back_step(self):
         global current_step
