@@ -5,9 +5,16 @@
 # Created by: PyQt5 UI code generator 5.11.2
 #
 # WARNING! All changes made in this file will be lost!
-
+import sys
+from PyQt5.QtWidgets import QDialog, QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+class App(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWin()
+        self.ui.setupUi(self)
+        self.show()  
 
 current_step = 0
 hints = {
@@ -147,3 +154,7 @@ class Ui_MainWin(object):
         self.show_step.setText(_translate("MainWin", "Welcom!"))
         self.show_text.setText(_translate("MainWin", "Ver 1.0 By Proladon"))
 
+app = QApplication(sys.argv)
+a = App()
+a.show()
+sys.exit(app.exec_())
