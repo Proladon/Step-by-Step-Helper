@@ -5,6 +5,10 @@
 
 Download(google driver): https://goo.gl/j8D8En
 
+Ver2.0
+![image](https://github.com/Proladon/Step-by-Step-Helper/blob/master/Step%20Helper%20Ver2.0%20.png)
+
+Ver1.0
 ![image](https://github.com/Proladon/Step-by-Step-Helper/blob/master/Step%20Helper.png)
 
 
