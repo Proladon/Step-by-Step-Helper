@@ -23,16 +23,36 @@ class Mainwin:
 	def call_diaolog(self):
 		class step_creater:
 			def __init__(self, master2):
-				self.master = master2
+				self.master2 = master2
 				master2.geometry("400x600+400+400")
 				master2.title("Classes Tkinter GUI")
 				
+				self.lb_1 = Label(master2, text="How many step")
+				self.lb_1.pack()
+				self.ask_how_many = Spinbox(master2, from_=1, to=100)
+				self.ask_how_many.pack()
+				self.confirm_btn = Button(master2, text="Confirm", command=self.confirm)
+				self.confirm_btn.pack()
+
+				self.how_many_entry = Entry(master2)
+				self.how_many_entry.pack()
+
 				self.quit_btn = Button(master2, text="Done", command=self.close)
 				self.quit_btn.pack()
 
+			def confirm(self):
+				num = self.ask_how_many.get()
+				for i in range(int(num)):
+					i = "entry_" + str(i)
+					self.i = Entry(self.master2)
+					self.i.pack()
+					
+
 			def close(self):
-				win.doc_list.insert(1, "New_1")
+				mainWin.doc_list.insert(1, "New_1")
 				root2.destroy()
+
+
 		root2 = Tk()
 		win2 = step_creater(root2)
 		root2.mainloop()
@@ -43,5 +63,5 @@ class Mainwin:
 
 
 root = Tk()
-win = Mainwin(root)
+mainWin = Mainwin(root)
 root.mainloop()
