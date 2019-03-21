@@ -40,13 +40,36 @@ class Mainwin:
 				self.quit_btn = Button(master2, text="Done", command=self.close)
 				self.quit_btn.pack()
 
+				self.widgets = [] # Storage dynamic widgets
+				self.data = {} # Storage dynamic data
+
 			def confirm(self):
 				num = self.ask_how_many.get()
-				for i in range(int(num)):
-					i = "entry_" + str(i)
-					self.i = Entry(self.master2)
-					self.i.pack()
+				for c in range(int(num)):
+					i = "entry_" + str(c)
+					self.widgets.append(i)
+					self.widgets[c] = Entry(self.master2)
+					self.widgets[c].pack()
 					
+				self.btn = Button(self.master2, text="Test", command=self.prt_get)
+				self.btn.pack()
+
+				self.confirm_btn.config(text="Reset", command=self.reset)
+
+			def reset(self):
+				counte = int(len(self.widgets))
+				for i in range(counte):
+					self.widgets[i].destroy()
+					self.btn.destroy()
+				self.data.clear()
+				self.widgets.clear()
+				self.confirm_btn.config(text="Confirm", command=self.confirm)
+
+			def prt_get(self):
+				counte = int(len(self.widgets))
+				for i in range(counte):
+					print(self.widgets[int(i)].get())
+
 
 			def close(self):
 				mainWin.doc_list.insert(1, "New_1")
