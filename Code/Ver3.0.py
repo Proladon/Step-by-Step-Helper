@@ -11,7 +11,7 @@ class Mainwin:
 		
 		self.doc_list = Listbox(relief=FLAT, bg="#252A33", fg="white")
 		self.doc_list.place(x=10, y=0, width=120)
-
+		
 		self.quit_btn = Button(text="New", relief=FLAT, bg="#FD6BAD", fg="#323232", command=self.call_diaolog)
 		self.quit_btn.place(x=10, y=200)
 		self.quit_btn = Button(text="Modify", relief=FLAT, bg="#27F8D3", fg="#323232", command=self.modify)
@@ -19,6 +19,20 @@ class Mainwin:
 
 #///////////////////////////////////////////////////////////////#
 # Functions
+	def modify(self):
+		select = self.doc_list.curselection()
+		if select != ():
+			self.call_diaolog()
+			# get step vaule from select doc
+			counte = self.widgets
+			for i in range(counte):
+				pass
+		else:
+			war = Tk()
+			war.geometry("200x50+500+450")
+			lb = Label(war, text="Please select a file!")
+			lb.pack()
+			war.mainloop()
 
 	def call_diaolog(self):
 		class step_creater:
@@ -34,12 +48,6 @@ class Mainwin:
 				self.confirm_btn = Button(master2, text="Confirm", command=self.confirm)
 				self.confirm_btn.pack()
 
-				self.how_many_entry = Entry(master2)
-				self.how_many_entry.pack()
-
-				self.quit_btn = Button(master2, text="Done", command=self.close)
-				self.quit_btn.pack()
-
 				self.widgets = [] # Storage dynamic widgets
 				self.data = {} # Storage dynamic data
 
@@ -51,7 +59,7 @@ class Mainwin:
 					self.widgets[c] = Entry(self.master2)
 					self.widgets[c].pack()
 					
-				self.btn = Button(self.master2, text="Test", command=self.prt_get)
+				self.btn = Button(self.master2, text="Done", command=self.close)
 				self.btn.pack()
 
 				self.confirm_btn.config(text="Reset", command=self.reset)
@@ -70,18 +78,14 @@ class Mainwin:
 				for i in range(counte):
 					print(self.widgets[int(i)].get())
 
-
 			def close(self):
 				mainWin.doc_list.insert(1, "New_1")
 				root2.destroy()
-
 
 		root2 = Tk()
 		win2 = step_creater(root2)
 		root2.mainloop()
 
-	def modify(self):
-		pass
 
 
 
